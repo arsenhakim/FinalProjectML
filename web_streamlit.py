@@ -4,6 +4,13 @@ import numpy as np
 import joblib
 import tensorflow as tf 
 from streamlit_option_menu import option_menu
+import os
+from pathlib import path
+
+BASE_DIR = path(__file__).resolve().parent
+
+SCALER_PATH = BASE_DIR/ 'scaler.pkl'
+MODEL_PATH = BASE_DIR/ 'model_ann.h5'
 
 
 KOLOM_INPUT_MODEL = [
@@ -207,8 +214,8 @@ numericals = ['Income', 'Age', 'Experience', 'CURRENT_JOB_YRS', 'CURRENT_HOUSE_Y
 
 def load_model_and_scaler():
     try:
-        scaler_loaded = joblib.load('.\scaler.pkl') # Ganti dengan nama file Anda
-        model_loaded = tf.keras.models.load_model('.\model_loan_prediction_pso_fix.h5') # Ganti nama file
+        scaler_loaded = joblib.load(SCALER_PATH) # Ganti dengan nama file Anda
+        model_loaded = tf.keras.models.load_model(MODEL_PATH) # Ganti nama file
         return model_loaded, scaler_loaded
     except Exception as e:
         st.error(f"Error saat memuat model atau scaler: {e}")
