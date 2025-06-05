@@ -13,7 +13,7 @@ from sklearn.preprocessing import StandardScaler
 BASE_DIR = Path(__file__).resolve().parent
 
 SCALER_PATH = BASE_DIR/ 'scaler.pkl'
-MODEL_PATH = BASE_DIR/ 'model_ann.h5'
+MODEL_PATH = BASE_DIR/ 'model_loan_prediction_pso_fix.h5'
 
 
 KOLOM_INPUT_MODEL = [
