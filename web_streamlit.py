@@ -2,7 +2,7 @@ import streamlit as st
 import pandas as pd
 import numpy as np
 import joblib
-import tensorflow as tf
+import tensorflow as tf 
 from streamlit_option_menu import option_menu
 
 
@@ -204,7 +204,6 @@ OHE_COLUMNS_PER_ORIGINAL_FEATURE = {
 
 numericals = ['Income', 'Age', 'Experience', 'CURRENT_JOB_YRS', 'CURRENT_HOUSE_YRS']
 
-st.cache_resource
 
 def load_model_and_scaler():
     try:
