@@ -6,6 +6,9 @@ import tensorflow as tf
 from streamlit_option_menu import option_menu
 import os
 from pathlib import Path
+import sklearn
+from sklearn.preprocessing import StandardScaler
+
 
 BASE_DIR = Path(__file__).resolve().parent
 
