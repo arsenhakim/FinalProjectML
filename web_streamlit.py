@@ -5,9 +5,9 @@ import joblib
 import tensorflow as tf 
 from streamlit_option_menu import option_menu
 import os
-from pathlib import path
+from pathlib import Path
 
-BASE_DIR = path(__file__).resolve().parent
+BASE_DIR = Path(__file__).resolve().parent
 
 SCALER_PATH = BASE_DIR/ 'scaler.pkl'
 MODEL_PATH = BASE_DIR/ 'model_ann.h5'
