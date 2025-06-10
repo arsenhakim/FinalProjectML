@@ -438,9 +438,9 @@ elif selected == "Predict Loan Risk":
                     state_raw = state_mapping_display_to_raw.get(state)
 
                     if not all([status_raw, housestat_raw, carstat_raw, prof_raw, state_raw]):
-                        st.warning("Mohon lengkapi semua pilihan field kategorikal dengan benar.")
+                        st.warning("Please Fill in the form completely.")
                     else:
-                        st.info("Memproses data untuk prediksi...")
+                        st.info("Processing information...")
                         data_input_asli = {
                             'Income': income_val, 'Age': age_val, 'Experience': exp_val,
                             'CURRENT_JOB_YRS': jobyrs, 'CURRENT_HOUSE_YRS': houseyrs,
@@ -464,15 +464,15 @@ elif selected == "Predict Loan Risk":
                             pred_proba = model.predict(data_ready_for_model)
                             probabilitas_risiko = float(pred_proba[0][0])
 
-                            st.subheader("✨ Hasil Prediksi Risiko ✨")
+                            st.subheader("✨ Risk Prediction Results ✨")
                             threshold = 0.5
                             if probabilitas_risiko >= threshold:
-                                st.error(f"Prediksi: **BERISIKO TINGGI** (Probabilitas Risiko: {probabilitas_risiko:.2%})")
+                                st.error(f"Prediction: **HIGH RISK** (Risk Probability: {probabilitas_risiko:.2%})")
                             else:
-                                st.success(f"Prediksi: **RISIKO RENDAH** (Probabilitas Risiko: {probabilitas_risiko:.2%})")
+                                st.success(f"Prediction: **LOW RISK** (Risk Probability: {probabilitas_risiko:.2%})")
 
                         except Exception as e:
-                            st.error(f"Terjadi error: {e}")
+                            st.error(f"Error: {e}")
                             import traceback
                             st.text(traceback.format_exc())
 
